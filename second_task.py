@@ -1,3 +1,4 @@
+from sys import argv
 def MathCalculation(string):
     resultOfOperation = 0
     if string[0].lower() == "add":
@@ -11,10 +12,13 @@ def MathCalculation(string):
     else:
         return None
     return resultOfOperation
-if __name__ == '__main__':
-    string = input()
-    string = string.split()
-    print(MathCalculation(string))
-
-
+try:
+    if __name__ == '__main__':
+        string = argv[1:]
+        print(MathCalculation(string))
+    MathCalculation(string)
+except ValueError:
+    print('Invalid Input')
+except ZeroDivisionError:
+    print('Divided by zero')
 

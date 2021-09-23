@@ -1,21 +1,19 @@
 def EBNF_SyntaxChecker(string):
     result = tuple()
-    if len(string) == 0:
-        result = (False, None)
-        return result
+    if not string:
+        return False, None
     elif string.isdigit():
-        result = (True, int(string))
-        return result
+        return True, int(string)
     flag = True
     subtract = False
     operationResult = 0
     for i in range(len(string)):
-        if i % 2 == 0:
+        if not i % 2:
             if not string[i].isdigit():
                 flag = False
                 break
             else:
-                if i == 0:
+                if not i:
                     operationResult = int(string[i])
                 else:
                     if subtract == False:
@@ -24,7 +22,7 @@ def EBNF_SyntaxChecker(string):
                         operationResult -= int(string[i])
                         subtract = False
         else:
-            if string[i] != "+" and string[i] != "-":
+            if string[i] not in "+-":
                 flag = False
                 break
             else:
@@ -42,6 +40,3 @@ def EBNF_SyntaxChecker(string):
 if __name__ == '__main__':
     string = input()
     print(EBNF_SyntaxChecker(string))
-
-
-
