@@ -1,4 +1,4 @@
-def MathCalculation(string)
+def MathCalculation(string):
     resultOfOperation = 0
     if string[0].lower() == "add":
         resultOfOperation = int(string[1]) + int(string[2])
