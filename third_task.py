@@ -12,6 +12,9 @@ def EBNF_SyntaxChecker(string):
             if not string[i].isdigit():
                 flag = False
                 break
+            if not (string[i+1].isdigit()):
+                flag = False
+                break
             else:
                 if not i:
                     operationResult = int(string[i])
@@ -20,7 +23,6 @@ def EBNF_SyntaxChecker(string):
                         operationResult += int(string[i])
                     else:
                         operationResult -= int(string[i])
-                        subtract = False
         else:
             if string[i] not in "+-":
                 flag = False
